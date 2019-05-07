@@ -1,0 +1,8 @@
+{% block body %}
+<div class="container">
+	<form methog="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+	</form>
+</div>
+{% endblock %}
