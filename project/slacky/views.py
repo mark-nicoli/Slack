@@ -26,9 +26,9 @@ def select(request):
 
 def output(request):
     #airbnb token requested
-    #slack = Slacker('xoxp-599483118967-595997435696-599854938486-ba620468657b72088d155e8ec3bcfdf4') #test 1 authentication token
-    #slack = Slacker('xoxp-592981392049-587776303283-612507367781-b6f49e0d4b37e04a85dad10e83cfde99') #test 2 authentication token
-    slack = Slacker('xoxp-623305680485-623305681381-623306147781-7ee6587e9ddd5b660fee085e9bf81593') #test 4 auth token
+    #slack = Slacker('xoxp-') #test 1 authentication token
+    #slack = Slacker('xoxp-') #test 2 authentication token
+    slack = Slacker('xoxp-') #test 4 auth token
 
     #leave channel with ID...
     #slack.channels.leave('CHMR17JMC')
@@ -55,13 +55,13 @@ def output(request):
     return render(request, 'confirmation.html')                 #render this page when the task is completed
 
     proxy_endpoint = 'http://myproxy:3128'
-    slack = Slacker('xoxp-623305680485-623305681381-623306147781-7ee6587e9ddd5b660fee085e9bf81593',
+    slack = Slacker('xoxp-',                                #authentication token
                     http_proxy=proxy_endpoint,
                     https_proxy=proxy_endpoint)
 
     from requests.sessions import Session
 
-    token = Slacker('xoxp-592981392049-587776303283-599294916432-e6bfef66c73c89f9fecbfbc931e8b25a')
+    token = Slacker('xoxp-')                                #authentication token
 
     with Session() as session:
         slack = Slacker(token, session=session)
@@ -69,5 +69,4 @@ def output(request):
         slack.chat.post_message('#random', 'go through')
         slack.chat.post_message('#random', 'a single https connection')
 
-        '''create a web page with 2 buttons: one saying i am steve and another one saying i am not steve.
-        each will execute a different python file when clicked '''
+        '''create a web page '''
